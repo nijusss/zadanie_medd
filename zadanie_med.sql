@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 22 Mar 2022, 13:11
+-- Czas generowania: 22 Mar 2022, 13:28
 -- Wersja serwera: 10.4.22-MariaDB
 -- Wersja PHP: 8.0.15
 
@@ -38,10 +38,11 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`id`, `staff_id`, `date`) VALUES
-(1, 2, '2022-03-23 10:00:00'),
-(2, 2, '2022-03-22 12:10:07'),
-(3, 1, '2022-03-23 12:00:00'),
-(4, 1, '2022-03-22 12:10:43');
+(5, 1, '2022-03-23 12:00:00'),
+(6, 1, '2022-03-23 12:30:00'),
+(7, 2, '2022-03-23 14:00:00'),
+(8, 2, '2022-03-24 10:00:00'),
+(9, 3, '2022-03-24 13:30:00');
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT dla tabeli `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT dla tabeli `staff`
