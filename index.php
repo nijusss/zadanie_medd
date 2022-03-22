@@ -17,9 +17,9 @@ if($q->execute()) {
             $schedule = $q->get_result();
             while($visit = $schedule->fetch_assoc()) {
                 $timestamp = strtotime($visit['date']);
-                echo "<span style =\"margin:10px;\">";
+                echo "<button style =\"margin:10px;\">";
                 echo date("j/m/Y H:i", $timestamp);
-                echo "<span>";
+                echo "</button>";
             }
         }
         echo "<br>";
