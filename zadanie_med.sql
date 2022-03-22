@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 22 Mar 2022, 12:41
+-- Czas generowania: 22 Mar 2022, 13:11
 -- Wersja serwera: 10.4.22-MariaDB
 -- Wersja PHP: 8.0.15
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `zadanie_med`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `schedule`
+--
+
+CREATE TABLE `schedule` (
+  `id` int(11) NOT NULL,
+  `staff_id` int(11) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `schedule`
+--
+
+INSERT INTO `schedule` (`id`, `staff_id`, `date`) VALUES
+(1, 2, '2022-03-23 10:00:00'),
+(2, 2, '2022-03-22 12:10:07'),
+(3, 1, '2022-03-23 12:00:00'),
+(4, 1, '2022-03-22 12:10:43');
 
 -- --------------------------------------------------------
 
@@ -47,6 +69,13 @@ INSERT INTO `staff` (`id`, `firstName`, `lastName`) VALUES
 --
 
 --
+-- Indeksy dla tabeli `schedule`
+--
+ALTER TABLE `schedule`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `staff_id` (`staff_id`);
+
+--
 -- Indeksy dla tabeli `staff`
 --
 ALTER TABLE `staff`
@@ -57,10 +86,26 @@ ALTER TABLE `staff`
 --
 
 --
+-- AUTO_INCREMENT dla tabeli `schedule`
+--
+ALTER TABLE `schedule`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT dla tabeli `staff`
 --
 ALTER TABLE `staff`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Ograniczenia dla zrzutów tabel
+--
+
+--
+-- Ograniczenia dla tabeli `schedule`
+--
+ALTER TABLE `schedule`
+  ADD CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
